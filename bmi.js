@@ -18,14 +18,14 @@ app.get('/', (req, res) => {
 
 app.post('/calculate-bmi', (req, res) => {
   try {
-    console.log(req.body); // Log the incoming request body
+    console.log(req.body);
     const weight = parseFloat(req.body.weight);
     const height = parseFloat(req.body.height) / 100;
     const bmi = weight / (height * height);
 
     res.json({ bmi: bmi.toFixed(1) });
   } catch (error) {
-    console.error(error); // This will log any errors that occur during processing
+    console.error(error);
     res.status(500).send("An error occurred on the server.");
   }
 });
